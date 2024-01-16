@@ -21,21 +21,22 @@ namespace LeetCodeSolutions
 
             for (int i = 0; i < s.Length; i++)
             {
-                if (!symbolsCount.ContainsKey(s[i])) {
-                    symbolsCount.Add(s[i], 0);
-                }
-
-                if (!symbolsCount.ContainsKey(t[i])) {
-                    symbolsCount.Add(t[i], 0);
-                }
-
                 if (symbolsCount.ContainsKey(s[i]))
                 {
                     symbolsCount[s[i]]++;
                 }
+                else
+                {
+                    symbolsCount.Add(s[i], 1);
+                }
+
                 if (symbolsCount.ContainsKey(t[i]))
                 {
                     symbolsCount[t[i]]--;
+                }
+                else
+                {
+                    symbolsCount.Add(t[i], -1);
                 }
             }
 
